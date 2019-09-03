@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import MyLink from './MyLink' ;
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          MalekBenz Site AHMED kkkkk
+         <MyLink name ="Fateh" />
+         <MyLink name ="Ahmed" />
+          
         </a>
       </header>
     </div>
