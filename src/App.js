@@ -4,6 +4,7 @@ import './App.css';
 import MyLink from './MyLink' ;
 
 function App() {
+  let pages = ["Page 1" , "Page 2" ];
   return (
     <div className="App">
       <header className="App-header">
@@ -17,7 +18,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-         <MyLink name ="Fateh" />
+         <MyLink name ="Fateh"  pages= {pages } />
          <MyLink name ="Ahmed" />
           
         </a>
