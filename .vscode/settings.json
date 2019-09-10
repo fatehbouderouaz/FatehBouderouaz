@@ -1,0 +1,5 @@
+{
+    "emmet.showSuggestionsAsSnippets": true,
+    "prettier.jsxBracketSameLine": true,
+    "prettier.jsxSingleQuote": true
+}
