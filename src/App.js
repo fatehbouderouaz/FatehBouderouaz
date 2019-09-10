@@ -4,6 +4,7 @@ import Header from "./Header";
 import Home from "./Home";
 import Footer from "./Footer";
 import Person from "./Person";
+import Quran from "./Quran";
 
 class App extends React.Component {
 
@@ -71,8 +72,11 @@ class App extends React.Component {
             />
           </Home>
           <Footer textfoot='My awsome footer' />
+          <Quran />
         </div>
+        
       </div>
+
     );
   }
 }
