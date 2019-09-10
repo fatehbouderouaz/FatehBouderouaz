@@ -15,7 +15,7 @@ class Quran extends React.Component {
     
     componentDidMount() {
         this.setState({loading: true})
-        fetch("http://api.mp3quran.net/api/surah?surah=1&language=en")
+        fetch("https://swapi.co/api/people/1")
             .then(response => response.json())
             .then(data => {
                  this.setState({
@@ -27,7 +27,7 @@ class Quran extends React.Component {
     }
     
     render() {
-        const text = this.state.loading ? "loading..." : this.state.character.surah
+        const text = this.state.loading ? "loading..." : this.state.character.name
         return (
             <div>
                 <p>{text}</p>
