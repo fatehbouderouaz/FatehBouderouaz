@@ -1,55 +1,42 @@
-    import React from 'react';
+import React from "react"
 
-    class Quran extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = {
-            error: null,
-            isLoaded: false,
-            items: []
-          };
-        }
-      
-        componentDidMount() {
-          fetch("http://api.mp3quran.net/api/surah?surah=1&language=en")
-            .then(res => res.json())
-            .then(
-              (result) => {
-                this.setState({
-                  isLoaded: true,
-                  items: result.items
-                });
-              },
-              // Note: it's important to handle errors here
-              // instead of a catch() block so that we don't swallow
-              // exceptions from actual bugs in components.
-              (error) => {
-                this.setState({
-                  isLoaded: true,
-                  error
-                });
-              }
-            )
-        }
-      
-        render() {
-          const { error, isLoaded, items } = this.state;
-          if (error) {
-            return <div>Error: {error.message}</div>;
-          } else if (!isLoaded) {
-            return <div>Loading...</div>;
-          } else {
-            return (
-              <ul>
-                {items.map(item => (
-                  <li key={item.name}>
-                    {item.name} {item.price}
-                  </li>
-                ))}
-              </ul>
-            );
-          }
-        }
-      }
+// https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch
+// https://swapi.co/
+// https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
 
-      export default Quran ;
+class Quran extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            loading: false,
+            character: {}
+        }
+    }
+    
+    componentDidMount() {
+        this.setState({loading: true})
+        fetch("http://api.mp3quran.net/api/surah?surah=1&language=en")
+            .then(response => response.json())
+            .then(data => {
+                 this.setState({
+                     loading: false,
+                     character: data
+                 })
+                //console.log(data)
+            })
+    }
+    
+    render() {
+        const text = this.state.loading ? "loading..." : this.state.character.surah
+        return (
+            <div>
+                <p>{text}</p>
+            </div>
+        )
+    }
+}
+
+export default Quran
+
+   
+
