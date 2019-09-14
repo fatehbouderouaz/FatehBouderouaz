@@ -43,7 +43,7 @@ class Quran extends React.Component {
 
   getAyah = (s,a) => {
     axios
-      .get("http://api.alquran.cloud/v1/ayah/"+s+":"+a+"/ar.alafasy")
+      .get("//api.alquran.cloud/v1/ayah/"+s+":"+a+"/ar.alafasy")
 
       .then(res => {
         console.log(res);
