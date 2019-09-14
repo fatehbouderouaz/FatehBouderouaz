@@ -5,10 +5,14 @@ import Home from "./Home";
 import Footer from "./Footer";
 import Person from "./Person";
 import Quran from "./Quran";
+import Nav from "./Nav";
+import { BrowserRouter, Route } from "react-router-dom";
+import About from "./About";
+import List from "./List";
+import Blog from "./Blog";
 
 class App extends React.Component {
-
-   state = {
+  state = {
     persons: [
       { name: "Ahmed", age: 5 },
       { name: "Mohammed", age: 10 },
@@ -41,42 +45,20 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className='App'>
-        <div className='container'>
-          <Header mhome='Home' mabout='About' mcontact='Contact' />
-          <Home text='Home components' Age={this.state.Age}>
-            {" "}
-            Home Title
-            <button
-              onClick={() => this.switchNameHandler("HHHHHHHH")}
-              className='btn btn-primary'>
-              Switch
-            </button>
-            <Person
-              name={this.state.persons[0].name}
-              age={this.state.persons[0].age}
-            />
-            <Person
-              name={this.state.persons[1].name}
-              age={this.state.persons[1].age}
-              changed={this.nameChangedHandler}
-            />
-            <Person
-              name={this.state.persons[2].name}
-              age={this.state.persons[2].age}
-            />
-            <Person
-              name={this.state.persons[3].name}
-              age={this.state.persons[3].age}
-              click={this.switchNameHandler.bind(this, "AAAAAAA")}
-            />
-          </Home>
-          <Footer textfoot='My awsome footer' />
-          <Quran />
-        </div>
-        
-      </div>
+      <BrowserRouter>
+        <div className='App'>
+          <div className='container'>
+            <Header />
+            <Route exact path='/' component={Home} />
+            <Route path='/about' component={About} />
+            <Route path='/list' component={List} />
+            <Route path='/blog' component={Blog} />
+            <Route path='/quran' component={Quran} />
 
+            <Footer textfoot='My awsome footer' />
+          </div>
+        </div>
+      </BrowserRouter>
     );
   }
 }
