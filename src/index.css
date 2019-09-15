@@ -36,8 +36,20 @@ code {
   background-color: rgb(245, 212, 212);
   border-radius: 8px;
   color:#756a04;
-  font-size: 18px;
+  font-size: 25px;
   padding: 4px 4px;
   margin: 4px;
 
+}
+
+.titreSourah{
+  text-align: center;
+  direction:rtl;  
+  line-height: 250%;
+  background-color: rgb(176, 255, 169);
+  border-radius: 8px;
+  color:#756a04;
+  font-size: 22px;
+  padding: 4px 4px;
+  margin: 4px;
 }
