@@ -10,6 +10,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import About from "./About";
 import List from "./List";
 import Blog from "./Blog";
+import Aya from './Aya';
 
 class App extends React.Component {
   state = {
@@ -54,6 +55,7 @@ class App extends React.Component {
             <Route path='/list' component={List} />
             <Route path='/blog' component={Blog} />
             <Route path='/quran' component={Quran} />
+            <Route path='/aya' component={Aya} />
 
             <Footer textfoot='My awsome footer' />
           </div>

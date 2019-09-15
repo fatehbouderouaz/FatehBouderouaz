@@ -2,26 +2,31 @@ import React from "react";
 import axios from "axios";
 
 let p = ""; 
-class Quran extends React.Component {
+class Aya extends React.Component {
 
   state = {
     ayates: [],
     sura: {},
-    numSura: 2,
-    numAyah: 102
+    numsura: 2,
+    numayah: 102
   };
 
-  
   componentDidMount() {
-    this.getAyah(this.state.numSura,this.state.numAyah);
+    this.getAyah(this.state.numsura,this.state.numayah);
+  };
 
-  }
+  handleChange = (event) => {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+    this.setState(
+        { [name]: value,
+          [name]: value
+        });
+    };
 
   handleAyah = () => {
-    let numSura = document.getElementById("sourah").value ;
-    let numAyah = document.getElementById("ayah").value ;
-    
-    this.getAyah(numSura,numAyah);
+    this.getAyah(this.state.numsura,this.state.numayah);
   };
 
   getAyah = (s,a) => {
@@ -42,6 +47,11 @@ class Quran extends React.Component {
       let x = Math.floor(Math.random() * Math.floor(101) + 1) ;
       let y = Math.floor(Math.random() * Math.floor(10) + 1) ;
 
+      this.setState(
+        { numsura: x,
+          numayah: y
+        });
+        
       this.getAyah(x,y)
   }
 
@@ -51,19 +61,24 @@ class Quran extends React.Component {
       <div>
         <h2>MY FIRST API CALL , TO BE CONTUNIED  !</h2>
         <br/>
-        <input type="text" id="sourah"  placeholder="Sourah "/>
-        <input type="text" id="ayah" placeholder="Ayah "/>
+        <input type="text" id="sourah" name="numsura" value={this.state.numsura} onChange={this.handleChange} placeholder="Sourah" />
+        <input type="text" id="ayah" name="numayah" value={this.state.numayah} onChange={this.handleChange} placeholder="Ayah" />
         <button type="button" className="btn btn-large  btn-success" onClick={this.handleAyah} >Click me</button>
         <button type="button" className="btn btn-large  btn-warning" onClick={this.randomAyah} >Random Ayah</button>
         <h4 className='titreSourah'>{this.state.sura.name}</h4>
 
-        <p className='ayaths'>{this.state.ayates.text}</p>
-        <div className="image"><img src={p} /></div>
         
-                        
+        <div className="row">
+           
+        <div className="col-md-4 ayaths"><p>{this.state.ayates.text}</p></div>
+        <div className="col-md-6 image"><img src={p} /></div>
+
+        </div>
+        
+        
       </div>
     );
   }
 }
 
-export default Quran;
+export default Aya;

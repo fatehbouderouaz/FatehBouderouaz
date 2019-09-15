@@ -32,28 +32,26 @@ code {
 .ayaths {
   text-align: justify;
   direction:rtl;  
-  line-height: 200%;
-  background-color: rgb(245, 212, 212);
+  line-height: 150%;
+  background-color: rgb(68, 67, 67);
   border-radius: 8px;
-  color:#756a04;
-  font-size: 25px;
-  padding: 4px 4px;
-  margin: 4px;
+  color:#ebe9e6;
+  font-size: 22px;
+  padding: 3px 3px;
+  margin: 3px;
 
 }
 
 .titreSourah{
   text-align: center;
   direction:rtl;  
-  line-height: 250%;
-  background-color: rgb(176, 255, 169);
+  line-height: 150%;
+  background-color: rgb(185, 189, 184);
   border-radius: 8px;
-  color:#756a04;
+  color:#111110;
   font-size: 22px;
   padding: 4px 4px;
   margin: 4px;
 }
 
-.image {
-  text-align: center;
-}
+
