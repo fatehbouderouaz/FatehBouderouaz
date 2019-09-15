@@ -56,7 +56,8 @@ class Quran extends React.Component {
         <h4 className='titreSourah'>{this.state.sura.name}</h4>
 
         <p className='ayaths'>{this.state.ayates.text}</p>
-        <img src={p} />
+        <div className="image"><img src={p} /></div>
+        
                         
       </div>
     );
