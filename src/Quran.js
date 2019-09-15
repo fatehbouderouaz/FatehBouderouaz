@@ -40,15 +40,18 @@ class Quran extends React.Component {
   }
 
   randomAyah =() => {
-      let x = Math.floor(Math.random() * Math.floor(114 -  + 1) + 1) ;
-      this.getAyah(x,1)
+      let x = Math.floor(Math.random() * Math.floor(100 - 1 + 2) + 1) ;
+      let y = Math.floor(Math.random() * Math.floor(10 - 1 + 1) + 1) ;
+
+      this.getAyah(x,y)
   }
 
   render() {
     
     return (
       <div>
-        <h2>Quran</h2>
+        <h2>MY FIRST API CALL , TO BE CONTUNIED  !</h2>
+        <br/>
         <input type="text" id="sourah"  placeholder="Sourah "/>
         <input type="text" id="ayah" placeholder="Ayah "/>
         <button type="button" className="btn btn-large  btn-success" onClick={this.handleAyah} >Click me</button>
