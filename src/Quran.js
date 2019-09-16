@@ -1,6 +1,7 @@
 import React from "react";
 import Aya from "./Aya";
 
+// To search ayate use (http://api.alquran.cloud/v1/search/محمد/all/quran-simple-clean)
 class Quran extends React.Component {
   state = {
     surah: 2,
