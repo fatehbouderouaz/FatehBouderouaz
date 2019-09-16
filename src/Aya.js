@@ -10,6 +10,7 @@ class Aya extends React.Component {
     if (prevProps === this.props) return;
 
     this.update();
+    console.log(`Update `, prevProps, this.props);
   }
   componentDidMount() {
     this.update();
@@ -27,6 +28,8 @@ class Aya extends React.Component {
   }
 
   render() {
+    const { surah, ayah } = this.props;
+    const URL = `https://cdn.alquran.cloud/media/image/${surah}/${ayah}`;
     return (
       <div>
         <h4 className='titreSourah'>{this.state.sura.name}</h4>
@@ -35,10 +38,7 @@ class Aya extends React.Component {
             <p>{this.state.ayates.text}</p>
           </div>
           <div className='col-md-6 image'>
-            <img
-              src={`https://cdn.alquran.cloud/media/image/${this.props.surah}/${this.props.ayah}`}
-              alt=''
-            />
+            <img src={URL} alt='surah' />
           </div>
         </div>
       </div>
