@@ -7,7 +7,11 @@ class Aya extends React.Component {
     sura: {}
   };
   componentDidUpdate(prevProps) {
-    if (prevProps === this.props) return;
+    if (
+      (prevProps.surah === this.props.surah) &
+      (prevProps.ayah === this.props.ayah)
+    )
+      return;
 
     this.update();
     console.log(`Update `, prevProps, this.props);

@@ -64,9 +64,9 @@ class Quran extends React.Component {
         </button>
 
         <Aya surah={surah} ayah={ayah} />
-        <Aya surah={surah} ayah={ayah + 1} />
-        <Aya surah={surah} ayah={ayah + 2} />
-        <Aya surah={surah} ayah={ayah + 3} />
+        <Aya surah={surah} ayah={+ayah + 1} />
+        <Aya surah={surah} ayah={+ayah + 2} />
+        <Aya surah={surah} ayah={+ayah + 3} />
       </div>
     );
   }
