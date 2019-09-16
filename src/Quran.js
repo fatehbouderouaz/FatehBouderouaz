@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Aya from "./Aya";
 
 let p = ""; 
 class Quran extends React.Component {
@@ -49,16 +50,17 @@ class Quran extends React.Component {
     
     return (
       <div>
-        <h2>MY FIRST API CALL , TO BE CONTUNIED  !</h2>
+        <h2>MY FIRST API CALL , TO BE CONTINUED  !</h2>
         <br/>
         <input type="text" id="sourah"  placeholder="Sourah "/>
         <input type="text" id="ayah" placeholder="Ayah "/>
         <button type="button" className="btn btn-large  btn-success" onClick={this.handleAyah} >Click me</button>
         <button type="button" className="btn btn-large  btn-warning" onClick={this.randomAyah} >Random Ayah</button>
-        <h4 className='titreSourah'>{this.state.sura.name}</h4>
+        {/* <h4 className='titreSourah'>{this.state.sura.name}</h4> */}
 
-        <p className='ayaths'>{this.state.ayates.text}</p>
-        <div className="image"><img src={p} /></div>
+        {/* <p className='ayaths'>{this.state.ayates.text}</p> */}
+        <Aya surah = {2} ayah = {100} />
+        {/* <div className="image"><img src={p} /></div> */}
         
                         
       </div>
