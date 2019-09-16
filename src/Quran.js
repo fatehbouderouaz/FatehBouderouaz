@@ -5,11 +5,9 @@ class Quran extends React.Component {
   state = {
     surah: 2,
     ayah: 102,
-    numSurah: 2,
-    numAyah: 102
+    inputSurah: 2,
+    inputAyah: 102
   };
-
-  componentDidMount() {}
 
   randomAyah = () => {
     let x = Math.floor(Math.random() * Math.floor(101) + 1);
@@ -17,15 +15,15 @@ class Quran extends React.Component {
     this.setState({
       surah: x,
       ayah: y,
-      numSurah: x,
-      numAyah: y
+      inputSurah: x,
+      inputAyah: y
     });
   };
 
   handleClick = () => {
     this.setState({
-      surah: this.state.numSurah,
-      ayah: this.state.numAyah
+      surah: this.state.inputSurah,
+      ayah: this.state.inputAyah
     });
   };
 
@@ -37,21 +35,21 @@ class Quran extends React.Component {
   };
 
   render() {
-    const { numAyah, numSurah, surah, ayah } = this.state;
+    const { inputAyah, inputSurah, surah, ayah } = this.state;
     return (
       <div>
         <h2>MY FIRST API CALL , TO BE CONTINUED !</h2>
         <br />
         <input
-          name='numSurah'
+          name='inputSurah'
           placeholder='Sourah'
-          value={numSurah}
+          value={inputSurah}
           onChange={this.handleChange}
         />
         <input
-          name='numAyah'
+          name='inputAyah'
           placeholder='Ayah'
-          value={numAyah}
+          value={inputAyah}
           onChange={this.handleChange}
         />
         <button

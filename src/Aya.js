@@ -7,7 +7,9 @@ class Aya extends React.Component {
     sura: {}
   };
   componentDidUpdate(prevProps) {
-    if (prevProps !== this.props) this.update();
+    if (prevProps === this.props) return;
+
+    this.update();
   }
   componentDidMount() {
     this.update();
