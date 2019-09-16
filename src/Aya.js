@@ -6,8 +6,13 @@ class Aya extends React.Component {
     ayates: [],
     sura: {}
   };
-
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) this.update();
+  }
   componentDidMount() {
+    this.update();
+  }
+  update() {
     const { surah, ayah } = this.props;
     axios
       .get(`//api.alquran.cloud/v1/ayah/${surah}:${ayah}/ar.alafasy`)

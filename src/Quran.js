@@ -1,68 +1,71 @@
 import React from "react";
-import axios from "axios";
 import Aya from "./Aya";
 
-let p = ""; 
 class Quran extends React.Component {
-
   state = {
-    ayates: [],
-    sura: {},
-    numSura: 2,
+    surah: 2,
+    ayah: 102,
+    numSurah: 2,
     numAyah: 102
   };
 
-  
-  componentDidMount() {
-    this.getAyah(this.state.numSura,this.state.numAyah);
+  componentDidMount() {}
 
-  }
-
-  handleAyah = () => {
-    let numSura = document.getElementById("sourah").value ;
-    let numAyah = document.getElementById("ayah").value ;
-    
-    this.getAyah(numSura,numAyah);
+  randomAyah = () => {
+    let x = Math.floor(Math.random() * Math.floor(101) + 1);
+    let y = Math.floor(Math.random() * Math.floor(10) + 1);
+    this.setState({
+      surah: x,
+      ayah: y,
+      numSurah: x,
+      numAyah: y
+    });
   };
 
-  getAyah = (s,a) => {
-    p = "https://cdn.alquran.cloud/media/image/"+s+"/"+a; 
-    axios
-      .get("//api.alquran.cloud/v1/ayah/"+s+":"+a+"/ar.alafasy")
+  handleClick = () => {
+    this.setState({
+      surah: this.state.numSurah,
+      ayah: this.state.numAyah
+    });
+  };
 
-      .then(res => {
-        console.log(res);
-        this.setState({
-          ayates: res.data.data,
-          sura: res.data.data.surah
-        });
-      });
-  }
-
-  randomAyah =() => {
-      let x = Math.floor(Math.random() * Math.floor(101) + 1) ;
-      let y = Math.floor(Math.random() * Math.floor(10) + 1) ;
-
-      this.getAyah(x,y)
-  }
+  handleChange = e => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value
+    });
+  };
 
   render() {
-    
+    const { numAyah, numSurah, surah, ayah } = this.state;
     return (
       <div>
-        <h2>MY FIRST API CALL , TO BE CONTINUED  !</h2>
-        <br/>
-        <input type="text" id="sourah"  placeholder="Sourah "/>
-        <input type="text" id="ayah" placeholder="Ayah "/>
-        <button type="button" className="btn btn-large  btn-success" onClick={this.handleAyah} >Click me</button>
-        <button type="button" className="btn btn-large  btn-warning" onClick={this.randomAyah} >Random Ayah</button>
-        {/* <h4 className='titreSourah'>{this.state.sura.name}</h4> */}
+        <h2>MY FIRST API CALL , TO BE CONTINUED !</h2>
+        <br />
+        <input
+          name='numSurah'
+          placeholder='Sourah'
+          value={numSurah}
+          onChange={this.handleChange}
+        />
+        <input
+          name='numAyah'
+          placeholder='Ayah'
+          value={numAyah}
+          onChange={this.handleChange}
+        />
+        <button
+          className='btn btn-large  btn-success'
+          onClick={this.handleClick}>
+          Click me
+        </button>
+        <button
+          className='btn btn-large  btn-warning'
+          onClick={this.randomAyah}>
+          Random Ayah
+        </button>
 
-        {/* <p className='ayaths'>{this.state.ayates.text}</p> */}
-        <Aya surah = {2} ayah = {100} />
-        {/* <div className="image"><img src={p} /></div> */}
-        
-                        
+        <Aya surah={surah} ayah={ayah} />
       </div>
     );
   }
