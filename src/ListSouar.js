@@ -10,7 +10,7 @@ class ListSouar extends React.Component {
     
       componentDidMount() {
         axios
-          .get("http://api.alquran.cloud/v1/surah")
+          .get("//api.alquran.cloud/v1/surah")
     
           .then(res => {
             this.setState({
