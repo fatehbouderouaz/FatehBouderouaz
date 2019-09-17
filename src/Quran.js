@@ -1,5 +1,6 @@
 import React from "react";
 import Aya from "./Aya";
+import ListSouar from "./ListSouar";
 
 // To search ayate use (http://api.alquran.cloud/v1/search/محمد/all/quran-simple-clean)
 class Quran extends React.Component {
@@ -63,11 +64,9 @@ class Quran extends React.Component {
           onClick={this.randomAyah}>
           Random Ayah
         </button>
-
+        
         <Aya surah={surah} ayah={ayah} />
-        <Aya surah={surah} ayah={+ayah + 1} />
-        <Aya surah={surah} ayah={+ayah + 2} />
-        <Aya surah={surah} ayah={+ayah + 3} />
+        
       </div>
     );
   }

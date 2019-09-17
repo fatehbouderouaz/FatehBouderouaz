@@ -10,6 +10,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import About from "./About";
 import List from "./List";
 import Blog from "./Blog";
+import Souars from "./Souars";
 
 class App extends React.Component {
   state = {
@@ -51,9 +52,10 @@ class App extends React.Component {
             <Header />
             <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
-            <Route path='/list' component={List} />
+            
             <Route path='/blog' component={Blog} />
             <Route path='/quran' component={Quran} />
+            <Route path='/souars' component={Souars} />
 
             <Footer textfoot='My awsome footer' />
           </div>

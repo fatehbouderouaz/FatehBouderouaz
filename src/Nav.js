@@ -13,6 +13,7 @@ class Nav extends React.Component {
             <NavLink className='navlink'  to='/list'>Liste</NavLink>
             <NavLink className='navlink'  to='/blog'>Blog</NavLink>
             <NavLink className='navlink'  to='/quran'>Quran</NavLink>
+            <NavLink className='navlink'  to='/souars'>Souars</NavLink>
           </ul>
         </div>
       </nav>

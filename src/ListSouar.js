@@ -1,32 +1,55 @@
 import React from 'react';
 import axios from 'axios';
+import Soura from "./Soura";
 
 class ListSouar extends React.Component {
     state = {
-        ayates: [],
-        sura: {},
-        numSura: 2,
-        numAyah: 102
+        souars: [],
+        selected : 1
       };
     
       componentDidMount() {
         axios
-          //.get("http://api.alquran.cloud/v1/ayah/2:102/ar.alafasy")
-          .get("http://api.alquran.cloud/v1/ayah/"+this.state.numSura+":"+this.state.numAyah+"/ar.alafasy")
+          .get("http://api.alquran.cloud/v1/surah")
     
           .then(res => {
-            //console.log(res);
             this.setState({
-              ayates: res.data.data,
-              sura: res.data.data.surah
+                souars: res.data.data,
             });
           });
-      }
+      };
+
+      handleChange = e => {
+        const { selected , value } = e.target;
+        this.setState({
+          selected: value
+
+
+        });
+        console.log(this.state.selected)
+      };
+
+     
+
+
+
       
     render(){
         return(
             <div>
-                ma liste
+            <div className='row'>
+            <div className='col-md-4'>
+                
+            </div>
+            <div className='col-md-4'>
+                
+            </div>
+            <div className='col-md-4'>
+                <select class="form-control list" value={this.state.value} onChange={this.handleChange} >{ this.state.souars.map(souar => <option key={souar.number} value={souar.number}> { souar.name }</option>) }</select> 
+            </div>
+        </div>
+               
+               <Soura surah={this.state.selected} />
             </div>
         )
     }
