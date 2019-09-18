@@ -5,7 +5,9 @@ import axios from "axios";
 class Soura extends React.Component {
   state = {
     ayates: [],
-    sura: ''
+    sura: '',
+    numberOfAyahs: 0,
+    revelationType:''
   };
   componentDidUpdate(prevProps) {
     if (
@@ -27,7 +29,9 @@ class Soura extends React.Component {
       .then(res => {
         this.setState({
           ayates: res.data.data.ayahs,
-          sura: res.data.data.name
+          sura: res.data.data.name,
+          numberOfAyahs: res.data.data.numberOfAyahs,
+          revelationType: res.data.data.revelationType
         });
       });
   }
@@ -37,7 +41,7 @@ class Soura extends React.Component {
     //const URL = `https://cdn.alquran.cloud/media/image/${surah}/${ayah}`;
     return (
       <div>
-        <h4 className='titreSourah'>{this.state.sura}</h4>
+        <h4 className='titreSourah'>{this.state.sura }  {this.state.revelationType === "Meccan" ? "مكية"  : "مدنية" }  عدد آياتها  {this.state.numberOfAyahs} </h4>
         
         <div className='row'>
             <div className='col-md-2 ayaths'>
