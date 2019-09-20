@@ -3,7 +3,7 @@ import React from "react";
 import Header from "./Header";
 import Home from "./Home";
 import Footer from "./Footer";
-// import Person from "./Person";
+ import Person from "./Person";
 import Quran from "./Quran";
 // import Nav from "./Nav";
 import { BrowserRouter, Route } from "react-router-dom";
@@ -11,6 +11,7 @@ import About from "./About";
 import List from "./List";
 import Blog from "./Blog";
 import Souars from "./Souars";
+import Slider from "./Slider";
 
 class App extends React.Component {
   state = {
@@ -52,11 +53,10 @@ class App extends React.Component {
             <Header />
             <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
-            
             <Route path='/blog' component={Blog} />
             <Route path='/quran' component={Quran} />
             <Route path='/souars' component={Souars} />
-
+            
             <Footer textfoot='My awsome footer' />
           </div>
         </div>

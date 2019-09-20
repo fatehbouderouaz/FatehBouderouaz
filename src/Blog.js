@@ -1,33 +1,71 @@
-import React from "react"
-import axios from "axios"
-
+import React from "react";
+import axios from "axios";
 
 class Blog extends React.Component {
-    state = {
-        users: []
-    }
-    componentDidMount(){
-        axios.get("https://jsonplaceholder.typicode.com/users")
-        .then(res => {
-            console.log(res.data);
-            this.setState({
-                users: res.data
-            })
-        })
-    }
-    render() {
-        return (
-            <div>
-                <h2>Blog</h2>
-                <div>
-                    { this.state.users.map(user => <div>Name : { user.name } email : { user.email }</div> )}
-                </div>
-            </div>
-        )
-    }
+  state = {
+    text: "محمد",
+    response: []
+  };
+
+  handleChange = e => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleSearch = e => {
+    axios
+      .get(
+        `http://api.alquran.cloud/v1/search/${this.state.text}/all/quran-simple-clean`
+      )
+
+      .then(res => {
+        console.log(res.data.data.matches);
+        this.setState({
+          response: res.data.data.matches
+        });
+      });
+  };
+
+  render() {
+    const { text } = this.state;
+    return (
+      <div>
+        <h2>Search</h2>
+        <div>
+          <div className='input-group'>
+            <input
+              type='text'
+              className='form-control'
+              name='text'
+              value={text}
+              onChange={this.handleChange}
+              placeholder='Search'
+            />
+            <span className='input-group-btn'>
+              <button
+                type='button'
+                className='btn btn-default'
+                onClick={this.handleSearch}>
+                Go!
+              </button>
+            </span>
+          </div>
+
+          <div>
+            {this.state.response.map(respons => (
+              <div key={respons.number} className='row'>
+                <div className='searchResponse'>{respons.surah.name} - {respons.numberInSurah}</div>
+                <div className='searchResponse'>{respons.text}</div>
+              </div>
+            ))}
+          </div>
+          
+        </div>
+      </div>
+    );
+  }
 }
 
-export default Blog
-
-   
-
+export default Blog;

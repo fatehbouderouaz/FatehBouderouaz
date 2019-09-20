@@ -59,6 +59,45 @@ code {
   
 }
 
+.img {
+  height:250px;
+
+}
+
+.footer {
+ background-color: rgb(253, 150, 150);
+}
+
+.searchResponse:nth-of-type(even) {
+  background-color: rgb(1, 17, 59);
+  color:rgba(0, 183, 255, 0.986);
+  
+}
+
+.searchResponse:nth-of-type(odd) {
+  background-color: rgb(135, 207, 230);
+  color:rgb(1, 17, 59);
+  font-size: 12px;
+  font-weight: bolder;
+  margin: 2px;
+  text-align: center;
+  align-self: center;
+}
+
+.searchResponse {
+  text-align: right;
+  line-height: 150%;
+  border-radius: 8px;
+  font-size: 22px;
+  padding: 5px 5px;
+  margin: 6px;
+  border-block-end-style: groove;
+}
+
+
+
+
+
 
 
 

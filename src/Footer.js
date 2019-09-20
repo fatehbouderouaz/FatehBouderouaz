@@ -1,4 +1,5 @@
 import React from 'react';
+import Slider from './Slider';
 
 
  class Footer extends React.Component {
@@ -7,8 +8,8 @@ import React from 'react';
     }
     render() {
         return (
-            <div>
-                <h3> {this.props.textfoot} and state -> {this.state.name} </h3>
+            <div className="footer">
+            
             </div>
         );
     }

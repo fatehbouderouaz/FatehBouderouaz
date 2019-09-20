@@ -31,9 +31,7 @@ class ListSouar extends React.Component {
     return (
       <div>
         <div className='row'>
-          <div className='col-md-4'></div>
-          <div className='col-md-4'></div>
-          <div className='col-md-4'>
+          
             <select
               className='form-control list'
               value={this.state.value}
@@ -44,7 +42,7 @@ class ListSouar extends React.Component {
                 </option>
               ))}
             </select>
-          </div>
+          
         </div>
         <Soura surah={this.state.selected} />
       </div>
