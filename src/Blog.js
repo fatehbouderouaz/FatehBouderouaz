@@ -15,17 +15,20 @@ class Blog extends React.Component {
   };
 
   handleSearch = e => {
+    const mytext = this.state.text;
     axios
       .get(
-        `http://api.alquran.cloud/v1/search/${this.state.text}/all/quran-simple-clean`
+        `//api.alquran.cloud/v1/search/${mytext}/all/quran-simple-clean`
       )
 
       .then(res => {
-        console.log(res.data.data.matches);
+        //console.log(res.data.data.matches);
         this.setState({
           response: res.data.data.matches
         });
       });
+
+      
   };
 
   render() {
