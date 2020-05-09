@@ -12,6 +12,7 @@ import List from "./List";
 import Blog from "./Blog";
 import Souars from "./Souars";
 import Slider from "./Slider";
+import Todo from "./Todo";
 
 class App extends React.Component {
   state = {
@@ -56,6 +57,7 @@ class App extends React.Component {
             <Route path='/blog' component={Blog} />
             <Route path='/quran' component={Quran} />
             <Route path='/souars' component={Souars} />
+            <Route path='/todo' component={Todo} />
             
             <Footer textfoot='My awsome footer' />
           </div>
