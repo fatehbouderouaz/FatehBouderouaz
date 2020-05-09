@@ -14,8 +14,9 @@ class ListCommunes extends React.Component {
 
       .then(res => {
         this.setState({
-          communes: res.data.data
+          communes: res
         });
+        console.log(res);
       });
   }
 /*
