@@ -8,6 +8,7 @@ class Communes extends React.Component {
     return (
       <div>
        <ListCommunes  /> 
+       <h1>test</h1>
       </div>
     );
   }
